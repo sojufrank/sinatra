@@ -1,5 +1,4 @@
-require 'rubygems'
-require "sinatra/base"
+require "sinatra"
 
 IMAGES = [
 	{ title: "bird"		, url: "http://seattlekkf.com/image/bird.jpg" },
