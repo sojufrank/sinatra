@@ -1,4 +1,4 @@
-require "sinatra"
+require "sinatra/base"
 
 IMAGES = [
 	{ title: "bird"		, url: "http://seattlekkf.com/image/bird.jpg" },

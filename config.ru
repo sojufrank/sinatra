@@ -1,2 +1,2 @@
 require './app'
-run app
+run App
