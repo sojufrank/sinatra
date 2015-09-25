@@ -7,6 +7,32 @@ IMAGES = [
 ]
 
 class App < Sinatra::Base
+
+	enable :sessions
+
+	before /images/ do
+		@message = "you are viewing a image"
+	end
+
+	before do
+		@user = "soju nora"
+		@height = session[:height]
+		puts "==> Entering request"
+	end
+	
+	after do
+		puts "<== Leaving request"
+	end
+	
+	get "/sessions/new" do
+		erb :"sessions/new"
+	end
+	
+	post "/sessions" do
+		session[:height] = params[:height]
+		
+	end
+	
 	get "/images" do
 		@images = IMAGES
 		erb:images
@@ -20,7 +46,7 @@ class App < Sinatra::Base
 	end
 
 	get "/" do
-		"Hello World via GET"
+		erb :hello, layout: true
 	end
 	
 	post "/" do
